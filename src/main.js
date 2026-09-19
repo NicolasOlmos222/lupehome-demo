@@ -554,37 +554,41 @@ function renderFabricsView() {
           </div>
 
           <!-- Group A vs Group B Explanatory Card -->
-          <div style="margin-top: 50px; background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 36px 40px; box-shadow: var(--shadow-sm);">
-            <div class="section-header" style="text-align: left; margin-bottom: 24px; max-width: 100%;">
+          <div class="fabric-guide-wrapper">
+            <div class="section-header" style="text-align: left; margin-bottom: 20px; max-width: 100%;">
               <span class="section-subtitle">GUÍA DE ELECCIÓN</span>
-              <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-primary); margin-bottom: 8px;">¿Cómo elegir la tela ideal para tu hogar?</h3>
+              <h3 class="fabric-guide-title">¿Cómo elegir la tela ideal para tu hogar?</h3>
               <p style="color: var(--color-text-muted); font-size: 0.95rem;">Todas nuestras telas cuentan con tratamiento antimanchas y garantía de confección.</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px;">
-              <div style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-primary);">Grupo A (Incluido en precio base)</h4>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 4px 10px; background: #EAE5D9; border-radius: 999px;">Sin Adicional</span>
+            <div class="fabric-groups-guide-grid">
+              <div class="fabric-guide-card group-a">
+                <div class="fabric-guide-card-header">
+                  <h4>Grupo A (Incluido en precio base)</h4>
+                  <span class="guide-badge a">Sin Adicional</span>
                 </div>
-                <p style="color: var(--color-text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
+                <p class="guide-card-desc">
                   Incluye las líneas <strong>Pana Velvet</strong> y <strong>Floyd</strong>. Ideales si buscás calidez aterciopelada o textura tipo lino rústico con excelente comportamiento antimanchas y estética moderna.
                 </p>
-                <div style="font-size: 0.82rem; font-weight: 600; color: var(--color-accent);">
-                  ✓ Máxima suavidad • ✓ Lavable con agua y jabón • ✓ Alta durabilidad
+                <div class="guide-card-features">
+                  <span>✓ Máxima suavidad</span>
+                  <span>✓ Lavable c/ agua y jabón</span>
+                  <span>✓ Alta durabilidad</span>
                 </div>
               </div>
 
-              <div style="background: var(--color-accent-light); border: 1px solid rgba(184, 103, 59, 0.25); border-radius: var(--radius-md); padding: 24px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--color-accent);">Grupo B (+10% Adicional)</h4>
-                  <span style="font-size: 0.75rem; font-weight: 700; padding: 4px 10px; background: var(--color-accent); color: #FFFFFF; border-radius: 999px;">Gama Técnica</span>
+              <div class="fabric-guide-card group-b">
+                <div class="fabric-guide-card-header">
+                  <h4>Grupo B (+10% Adicional)</h4>
+                  <span class="guide-badge b">Gama Técnica</span>
                 </div>
-                <p style="color: var(--color-text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
+                <p class="guide-card-desc">
                   Incluye <strong>Mercury</strong> (antidesgarro especial para uñas de perros y gatos) y <strong>Cuerotex</strong> (aspecto cuero nobuk ultra soft con repelencia absoluta y limpieza con paño húmedo).
                 </p>
-                <div style="font-size: 0.82rem; font-weight: 600; color: var(--color-accent);">
-                  ✓ Pet Friendly antidesgarro • ✓ Barrera líquida total • ✓ Acabado Nobuk Premium
+                <div class="guide-card-features b">
+                  <span>✓ Pet Friendly antidesgarro</span>
+                  <span>✓ Barrera líquida total</span>
+                  <span>✓ Acabado Nobuk Premium</span>
                 </div>
               </div>
             </div>
@@ -1271,10 +1275,33 @@ function attachGlobalEventListeners() {
     });
   }
 
-  // Keyboard Escape to close modal
+  // Mobile Menu Toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const navLinksMenu = document.getElementById('nav-links-menu');
+  if (mobileBtn && navLinksMenu) {
+    mobileBtn.onclick = (e) => {
+      e.stopPropagation();
+      mobileBtn.classList.toggle('open');
+      navLinksMenu.classList.toggle('open');
+    };
+
+    // Close menu when clicking outside or on a link
+    navLinksMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.classList.remove('open');
+        navLinksMenu.classList.remove('open');
+      });
+    });
+  }
+
+  // Keyboard Escape to close modal or mobile menu
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeCustomizer();
+      if (mobileBtn && navLinksMenu) {
+        mobileBtn.classList.remove('open');
+        navLinksMenu.classList.remove('open');
+      }
     }
   });
 }
