@@ -18,8 +18,15 @@ export const FABRICS = [
     group: "A",
     groupLabel: "Grupo A (Precio Base)",
     surchargePercent: 0,
+    tagline: "Tacto aterciopelado de alta gama con brillo sutil y máximo confort",
     features: "Tacto aterciopelado premium, tecnología antimanchas, lavable",
     sampleImage: "./images/fabrics/pana-velvet.webp",
+    specs: [
+      { label: "Tacto y Acabado", value: "Aterciopelado plush ultra soft mate" },
+      { label: "Protección", value: "Tratamiento antimanchas con teflón" },
+      { label: "Apto Mascotas", value: "Excelente (el pelo se retira con facilidad)" },
+      { label: "Limpieza", value: "Paño húmedo con jabón blanco o neutro" }
+    ],
     colors: [
       { name: "Marfil", hex: "#EAE5D9" },
       { name: "Sepia", hex: "#BFB19B" },
@@ -44,8 +51,15 @@ export const FABRICS = [
     group: "A",
     groupLabel: "Grupo A (Precio Base)",
     surchargePercent: 0,
+    tagline: "Trama rústica tejida con hilado bicolor y estética nórdica contemporánea",
     features: "Textura tejida moderna, alta durabilidad, antimanchas y lavable",
     sampleImage: "./images/fabrics/floyd.webp",
+    specs: [
+      { label: "Tacto y Acabado", value: "Textura tejida tipo lino con cuerpo pesado" },
+      { label: "Protección", value: "Proceso hidrorrepelente antimanchas" },
+      { label: "Resistencia", value: "Uso diario familiar de alta fricción" },
+      { label: "Limpieza", value: "Paño húmedo o limpieza en seco" }
+    ],
     colors: [
       { name: "Ivory", hex: "#EDE9E1" },
       { name: "Beige", hex: "#D4C5AF" },
@@ -70,8 +84,15 @@ export const FABRICS = [
     group: "B",
     groupLabel: "Grupo B (+10% Adicional)",
     surchargePercent: 10,
+    tagline: "Tejido técnico antidesgarro con tecnología pet-friendly para hogares con mascotas",
     features: "Antidesgarro reforzado (pet-friendly), antimanchas y lavable",
     sampleImage: "./images/fabrics/mercury.webp",
+    specs: [
+      { label: "Tacto y Acabado", value: "Microfibra compacta con trama antidesgarro" },
+      { label: "Pet Friendly", value: "Hilos de alta resistencia a uñas de perros y gatos" },
+      { label: "Protección", value: "Barrera líquida de máxima absorción cero" },
+      { label: "Limpieza", value: "100% Lavable con agua y jabón neutro" }
+    ],
     colors: [
       { name: "Oyster", hex: "#DDD6CA" },
       { name: "Porcelain", hex: "#F2EDE4" },
@@ -91,8 +112,15 @@ export const FABRICS = [
     group: "B",
     groupLabel: "Grupo B (+10% Adicional)",
     surchargePercent: 10,
+    tagline: "Aspecto cuero nobuk ultra soft: elegancia atemporal y limpieza en un solo paso",
     features: "Aspecto cuero nobuk ultra soft, lavable, máxima resistencia al uso",
     sampleImage: "./images/fabrics/cuerotex.webp",
+    specs: [
+      { label: "Tacto y Acabado", value: "Sensación nobuk aterciopelado con cuerpo de cuero" },
+      { label: "Impermeabilidad", value: "Impermeable total a líquidos y derrames" },
+      { label: "Resistencia", value: "No se cuartea ni reseca con el tiempo" },
+      { label: "Limpieza", value: "Pasada de trapo húmedo y queda impecable" }
+    ],
     colors: [
       { name: "Chocolate", hex: "#3B2820" },
       { name: "Tostado", hex: "#664332" },
